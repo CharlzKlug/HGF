@@ -28,5 +28,5 @@ func main() {
 	} else {
 		status = "failing"
 	}
-	fmt.Println(status)
+	fmt.Println("A grade of", grade, "is", status)
 }
