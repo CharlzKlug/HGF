@@ -1,8 +1,8 @@
 package main
 
-import "233_package_import/greeting"
+import "233_package_import/salutation"
 
 func main() {
-	greeting.Hello()
-	greeting.Hi()
+	salutation.Hello()
+	salutation.Hi()
 }
