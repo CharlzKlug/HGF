@@ -7,4 +7,7 @@ func main() {
 	var primes [5]int = [5]int{2, 3, 5, 7, 11}
 	fmt.Println(notes)
 	fmt.Println(primes)
+
+	fmt.Printf("%#v\n", notes)
+	fmt.Printf("%#v\n", primes)
 }
