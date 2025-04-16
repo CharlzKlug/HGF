@@ -8,5 +8,11 @@ func main() {
 		word   string
 		toggle bool
 	}
+	myStruct.number = 3.14
+	myStruct.word = "pie"
+	myStruct.toggle = true
 	fmt.Printf("%#v\n", myStruct)
+	fmt.Println(myStruct.number)
+	fmt.Println(myStruct.word)
+	fmt.Println(myStruct.toggle)
 }
