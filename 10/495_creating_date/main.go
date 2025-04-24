@@ -9,6 +9,10 @@ type Date struct {
 }
 
 func main() {
-	date := Date{Year: 2019, Month: 5, Day: 27}
+	date := Date{Year: 2019, Month: 14, Day: 50}
+	fmt.Println(date)
+	date = Date{Year: 0, Month: 0, Day: -2}
+	fmt.Println(date)
+	date = Date{Year: -999, Month: -1, Day: 0}
 	fmt.Println(date)
 }
