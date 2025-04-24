@@ -14,6 +14,14 @@ func (m Milliliters) ToGallons() Gallons {
 	return Gallons(m * 0.000264)
 }
 
+func (g Gallons) ToLiters() Liters {
+	return Liters(g * 3.785)
+}
+
+func (g Gallons) ToMilliliters() Milliliters {
+	return Milliliters(g * 3785.4)
+}
+
 func main() {
 	soda := Liters(2)
 	fmt.Printf("%0.3f liters equals %0.3f gallons\n", soda,
@@ -21,4 +29,9 @@ func main() {
 	water := Milliliters(500)
 	fmt.Printf("%0.3f milliliters equals %0.3f gallons\n",
 		water, water.ToGallons())
+
+	milk := Gallons(2)
+	fmt.Printf("%0.3f gallons equals %0.3f liters\n", milk, milk.ToLiters())
+	fmt.Printf("%0.3f gallons equals %0.3f milliliters\n",
+		milk, milk.ToMilliliters())
 }
