@@ -26,6 +26,23 @@ func main() {
 	fmt.Println(date.Day())
 
 	event := calendar.Event{}
-	event.Date.year = 2019
-	event.month = 5
+	err = event.SetYear(2019)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = event.SetMonth(5)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = event.SetDay(27)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(event.Year())
+	fmt.Println(event.Month())
+	fmt.Println(event.Day())
+
+	fmt.Println(event.Date.Year())
+	fmt.Println(event.Date.Month())
+	fmt.Println(event.Date.Day())
 }
