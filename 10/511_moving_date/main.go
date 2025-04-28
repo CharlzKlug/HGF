@@ -24,4 +24,8 @@ func main() {
 	fmt.Println(date.Year())
 	fmt.Println(date.Month())
 	fmt.Println(date.Day())
+
+	event := calendar.Event{}
+	event.Date.year = 2019
+	event.month = 5
 }
