@@ -45,4 +45,8 @@ func main() {
 	fmt.Println(event.Date.Year())
 	fmt.Println(event.Date.Month())
 	fmt.Println(event.Date.Day())
+
+	eventBirthday := calendar.Event{}
+	eventBirthday.SetTitle("Mom's birthday djkfksjdfkjdkfjdkjfskjfkdjskfjksdjfksdjfkjsdkjfksdjfkjsdkf")
+	fmt.Println(eventBirthday.Title())
 }
