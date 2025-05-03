@@ -18,7 +18,7 @@ type TapeRecorder struct {
 	Microphones int
 }
 
-func (t TapeRecorder) Play(song strign) {
+func (t TapeRecorder) Play(song string) {
 	fmt.Println("Playing", song)
 }
 
