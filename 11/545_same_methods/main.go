@@ -14,6 +14,12 @@ func playList(device Player, songs []string) {
 	device.Stop()
 }
 
+func TryOut(player Player) {
+	player.Play("Test Track")
+	player.Stop()
+	player.Record()
+}
+
 func main() {
 	mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
 	var player Player = gadget.TapePlayer{}
