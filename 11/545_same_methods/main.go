@@ -17,13 +17,16 @@ func playList(device Player, songs []string) {
 func TryOut(player Player) {
 	player.Play("Test Track")
 	player.Stop()
-	player.Record()
+	recorder := player.(gadget.TapeRecorder)
+	recorder.Record()
 }
 
 func main() {
 	mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
 	var player Player = gadget.TapePlayer{}
 	playList(player, mixtape)
+	TryOut(player)
 	player = gadget.TapeRecorder{}
 	playList(player, mixtape)
+	TryOut(player)
 }
