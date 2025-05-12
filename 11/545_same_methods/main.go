@@ -1,6 +1,9 @@
 package main
 
-import "545_same_methods/gadget"
+import (
+	"545_same_methods/gadget"
+	"fmt"
+)
 
 type Player interface {
 	Play(string)
@@ -17,8 +20,12 @@ func playList(device Player, songs []string) {
 func TryOut(player Player) {
 	player.Play("Test Track")
 	player.Stop()
-	recorder := player.(gadget.TapeRecorder)
-	recorder.Record()
+	recorder, ok := player.(gadget.TapeRecorder)
+	if ok {
+		recorder.Record()
+	} else {
+		fmt.Println("Player was not a TapeRecorder")
+	}
 }
 
 func main() {
