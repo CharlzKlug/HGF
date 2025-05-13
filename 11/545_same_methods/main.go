@@ -29,11 +29,13 @@ func TryOut(player Player) {
 }
 
 func main() {
-	mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
-	var player Player = gadget.TapePlayer{}
-	playList(player, mixtape)
-	TryOut(player)
-	player = gadget.TapeRecorder{}
-	playList(player, mixtape)
-	TryOut(player)
+	// mixtape := []string{"Jessie's Girl", "Whip It", "9 to 5"}
+	// var player Player = gadget.TapePlayer{}
+	// playList(player, mixtape)
+	// TryOut(player)
+	// player = gadget.TapeRecorder{}
+	// playList(player, mixtape)
+	// TryOut(player)
+	TryOut(gadget.TapeRecorder{})
+	TryOut(gadget.TapePlayer{})
 }
