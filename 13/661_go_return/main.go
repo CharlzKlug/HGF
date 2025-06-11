@@ -7,8 +7,13 @@ import (
 	"net/http"
 )
 
+type Page struct {
+	URL string
+	Size int
+}
+
 func main() {
-	sizes := make(chan int)
+	sizes := make(chan Page)
 	urls := []string{
 		"https://example.com/",
 		"https://golang.org/",
@@ -22,7 +27,7 @@ func main() {
 	}
 }
 
-func responseSize(url string, channel chan int) {
+func responseSize(url string, channel chan Page) {
 	fmt.Println("Getting", url)
 	response, err := http.Get(url)
 	if err != nil {
@@ -33,5 +38,5 @@ func responseSize(url string, channel chan int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	channel <- len(body)
+	channel <- Page{URL: url, Size: len(body)}
 }
