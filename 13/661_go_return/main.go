@@ -1,17 +1,28 @@
 package main
 
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
 func main() {
-	var size int
-	size = go responseSize("https://example.com/")
-	fmt.Println(size)
-	size = go responseSize("https://golang.org/")
-	fmt.Println(size)
-	size = go responseSize("https://golang.org/doc")
-	fmt.Println(size)
-	time.Sleep(5 * time.Second)
+	sizes := make(chan int)
+	urls := []string{
+		"https://example.com/",
+		"https://golang.org/",
+		"https://golang.org/doc",
+	}
+	for _, url := range urls {
+		go responseSize(url, sizes)
+	}
+	for i := 0; i < len(urls); i++ {
+		fmt.Println(<-sizes)
+	}
 }
 
-func responseSize(url string) int {
+func responseSize(url string, channel chan int) {
 	fmt.Println("Getting", url)
 	response, err := http.Get(url)
 	if err != nil {
@@ -22,5 +33,5 @@ func responseSize(url string) int {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return len(body)
+	channel <- len(body)
 }
