@@ -27,3 +27,12 @@ func errorString(list []string, got string, want string) string {
 	return fmt.Sprintf("JoinWithCommas(%#v) = \"%s\", want \"%s\"",
 		list, got, want)
 }
+
+func TestOneElement(t *testing.T) {
+	list := []string{"apple"}
+	want := "apple"
+	got := JoinWithCommas(list)
+	if got != want {
+		t.Error(errorString(list, got, want))
+	}
+}
