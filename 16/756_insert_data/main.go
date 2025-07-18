@@ -20,8 +20,11 @@ func executeTemplate(text string, data interface{}) {
 }
 
 func main() {
-	executeTemplate("Dot is: {{.}}!\n", "ABC")
-	executeTemplate("Dot is: {{.}}!\n", 123.5)
-	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", true)
-	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", false)
+	templateText := "Before loop: {{.}}\n{{range .}}In loop: {{.}}\n{{end}}After loop: {{.}}\n"
+	executeTemplate(templateText, []string{"do", "re", "mi"})
+	templateText = "Prices:\n{{range .}}${{.}}\n{{end}}"
+	executeTemplate(templateText, []float64{1.25, 0.99, 27})
+	templateText = "Prices:\n{{range .}}${{.}}\n{{end}}"
+	executeTemplate(templateText, []float64{})
+	executeTemplate(templateText, nil)
 }
