@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -22,14 +21,13 @@ func check(err error) {
 
 func viewHandler(writer http.ResponseWriter, request *http.Request) {
 	signatures := getStrings("signatures.txt")
-	fmt.Printf("%#v\n", signatures)
 	html, err := template.ParseFiles("view.html")
 	check(err)
 	guestbook := Guestbook{
 		SignatureCount: len(signatures),
 		Signatures:	signatures,
 	}
-	err = html.Execute(writer, nil)
+	err = html.Execute(writer, guestbook)
 	check(err)
 }
 
