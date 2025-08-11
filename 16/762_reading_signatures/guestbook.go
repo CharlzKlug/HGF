@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	// "text/template"
 )
 
 type Guestbook struct {
